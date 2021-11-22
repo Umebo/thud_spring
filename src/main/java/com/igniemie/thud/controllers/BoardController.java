@@ -1,6 +1,7 @@
 package com.igniemie.thud.controllers;
 
-import com.igniemie.thud.board.Board;
+import com.igniemie.thud.model.Board;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +18,8 @@ public class BoardController {
     }
 */
     @GetMapping
-    public String wypisz() {
-        return board.toString();
+    public String board(Model model) {
+        model.addAttribute("board", this.board.toString());
+        return "board";
     }
 }

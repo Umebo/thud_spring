@@ -4,9 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c72dc92-8f25-4bd9-9c4d-3990c5c5cdbb" name="Changes" comment="the rest of maven project">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="0c72dc92-8f25-4bd9-9c4d-3990c5c5cdbb" name="Changes" comment="first">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/exception/InvalidParamException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/Field.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/Move.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/Piece.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/PlayerType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/service/GameService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/storage/GameStorage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/board.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/controllers/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/controllers/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/igniemie/thud/board/Board.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/igniemie/thud/controllers/BoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/igniemie/thud/controllers/BoardController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +32,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -32,19 +51,24 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="2091JTVSceGeLUSoGxk6TvE5518" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -76,6 +100,11 @@
       <workItem from="1635599853746" duration="384000" />
       <workItem from="1635600255403" duration="766000" />
       <workItem from="1635601117820" duration="13695000" />
+      <workItem from="1636355227966" duration="80000" />
+      <workItem from="1637247878689" duration="164000" />
+      <workItem from="1637271646558" duration="28000" />
+      <workItem from="1637272955122" duration="11000" />
+      <workItem from="1637587219624" duration="10709000" />
     </task>
     <task id="LOCAL-00001" summary="the rest of maven project">
       <created>1635600831122</created>
@@ -84,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635600831122</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="first">
+      <created>1636355294524</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1636355294524</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,6 +140,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="the rest of maven project" />
-    <option name="LAST_COMMIT_MESSAGE" value="the rest of maven project" />
+    <MESSAGE value="first" />
+    <option name="LAST_COMMIT_MESSAGE" value="first" />
   </component>
 </project>

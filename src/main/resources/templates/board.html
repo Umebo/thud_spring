@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thud! Game</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<!--
+<div id="logo"><img src="logo.png"></div>
+-->
+<div id="menu">
+    <a href="/main">Main</a>
+    <a href="/board">Kontakt</a>
+    <a th:if="${logged == true}" href="/cart">Koszyk</a>
+    <a th:if="${logged == false}" href="/login">Zaloguj</a>
+    <a th:if="${logged == true}" href="/logout">Wyloguj</a>
+</div>
+
+<div id="content">
+    <div th:each="book : ${books}" class="book">
+        <div th:text="${book.title}" class="title"></div>
+        <div th:text="${book.author}" class="author"></div>
+        <div th:text="'Cena: ' + ${book.price}" class="price"></div>
+        <div th:text="'ISBN: ' + ${book.isbn}" class="isbn"></div>
+        <div th:text="'Sztuk: ' + ${book.quantity}" class="quantity"></div>
+        <a th:if="${logged == true}" th:href="@{/cart/add/{id}(id=${book.id})}">Do koszyka</a>
+    </div>
+</div>
+</body>
+</html>

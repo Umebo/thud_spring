@@ -1,10 +1,22 @@
 package com.igniemie.thud.model;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+import javax.persistence.*;
+
+@Entity
+@NoArgsConstructor
+@Getter
+@Setter
 public class Player {
 
-    private String login;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String username;
+    @Enumerated(EnumType.STRING)
+    private PlayerType type;
 
 }

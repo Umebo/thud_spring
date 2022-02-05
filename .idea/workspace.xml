@@ -4,25 +4,58 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c72dc92-8f25-4bd9-9c4d-3990c5c5cdbb" name="Changes" comment="first">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/exception/InvalidParamException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/Field.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/Move.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/Piece.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/PlayerType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/service/GameService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/storage/GameStorage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/board.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/main.html" afterDir="false" />
+    <list default="true" id="0c72dc92-8f25-4bd9-9c4d-3990c5c5cdbb" name="Changes" comment="first approach to model&#10;not working">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_activation_jakarta_activation_1_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_20041127_091804.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_persistence_javax_persistence_api_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_13_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_27.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_attoparser_attoparser_2_0_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_2_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_6_5_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_4_2_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_2_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_2_spec_1_1_1_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_2_5_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_java8time_3_0_4_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_12_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring5_3_0_12_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_unbescape_unbescape_1_1_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/config/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/controllers/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/GameStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/session/GameSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/controllers/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/controllers/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/igniemie/thud/board/Board.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/igniemie/thud/controllers/BoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/igniemie/thud/controllers/BoardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/config/AppConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/controllers/BoardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/Board.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/Field.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/Move.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/Piece.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/PlayerType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/model/PlayerType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/service/GameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/igniemie/thud/storage/GameStorage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/board.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/board.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/igniemie/thud/ThudApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/igniemie/thud/ThudApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/igniemie/thud/config/AppConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/igniemie/thud/controllers/BoardController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/igniemie/thud/ThudApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/igniemie/thud/ThudApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thud.iml" beforeDir="false" afterPath="$PROJECT_DIR$/thud.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +67,8 @@
       <list>
         <option value="CSS File" />
         <option value="HTML File" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -104,7 +137,13 @@
       <workItem from="1637247878689" duration="164000" />
       <workItem from="1637271646558" duration="28000" />
       <workItem from="1637272955122" duration="11000" />
-      <workItem from="1637587219624" duration="10709000" />
+      <workItem from="1637587219624" duration="10968000" />
+      <workItem from="1637602522273" duration="2494000" />
+      <workItem from="1639745862186" duration="2094000" />
+      <workItem from="1641805508883" duration="365000" />
+      <workItem from="1641996933411" duration="6923000" />
+      <workItem from="1643966880786" duration="5952000" />
+      <workItem from="1644053259960" duration="3610000" />
     </task>
     <task id="LOCAL-00001" summary="the rest of maven project">
       <created>1635600831122</created>
@@ -120,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636355294524</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="first approach to model&#10;not working">
+      <created>1637599012019</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1637599012019</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +187,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="the rest of maven project" />
     <MESSAGE value="first" />
-    <option name="LAST_COMMIT_MESSAGE" value="first" />
+    <MESSAGE value="first approach to models" />
+    <MESSAGE value="first approach to model&#10;not working" />
+    <option name="LAST_COMMIT_MESSAGE" value="first approach to model&#10;not working" />
   </component>
 </project>

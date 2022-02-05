@@ -8,9 +8,7 @@ public class Game {
     private String gameId;
     private Player player1;
     private Player player2;
-    private Board board;
-
-    public Game() {
-    }
+    private GameStatus status;
+    private int[][] board;
 
 }

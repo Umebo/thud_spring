@@ -1,15 +1,13 @@
 package com.igniemie.thud.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 @AllArgsConstructor
+@Getter
 public enum PlayerType {
-    D("dwarf"),
-    T("troll");
+    DWARF(1),
+    TROLL(2);
 
-    private String type;
-
-    public String getType() {
-        return type;
-    }
+    private int type;
 }

@@ -8,14 +8,7 @@
 <body>
 
 <div id="content">
-    <div th:each="tile : ${board}" class="book">
-        <div th:text="${book.title}" class="title"></div>
-        <div th:text="${book.author}" class="author"></div>
-        <div th:text="'Cena: ' + ${book.price}" class="price"></div>
-        <div th:text="'ISBN: ' + ${book.isbn}" class="isbn"></div>
-        <div th:text="'Sztuk: ' + ${book.quantity}" class="quantity"></div>
-        <a th:if="${logged == true}" th:href="@{/cart/add/{id}(id=${book.id})}">Do koszyka</a>
-    </div>
+    
 </div>
 </body>
 </html>

@@ -1,35 +1,26 @@
 package com.igniemie.thud.session;
 
 import com.igniemie.thud.model.Game;
+import com.igniemie.thud.model.Player;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Component
 @SessionScope
 public class GameSession {
 
-    private static Map<String, Game> games;
-    private static GameSession instance;
+    private Player player = null;
 
-    private GameSession() {
-        games = new HashMap<>();
+    public boolean isLogged() {
+        return this.player != null;
     }
 
-    public static synchronized GameSession getInstance() {
-        if (instance == null) {
-            instance = new GameSession();
-        }
-        return instance;
+    public Player getPlayer() {
+        return player;
     }
 
-    public static Map<String, Game> getGames() {
-        return games;
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
-    public void setGame(Game game) {
-        games.put(game.getGameId(), game);
-    }
 }

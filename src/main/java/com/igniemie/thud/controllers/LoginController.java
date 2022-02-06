@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class LoginController {
 
     //TODO smaller login controller
-    /*
+/*
     @GetMapping
-    public
+    public String
 */
 }

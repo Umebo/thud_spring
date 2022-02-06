@@ -26,6 +26,8 @@ public class GameService implements IGameService {
         //GameSession.getInstance().setGame(game);
         return game;
     }
+
+    //TODO create a new entry instead of getting an instance of Game
 /*
     public Game connectToGame(Player player2, String gameId) throws InvalidParamException{
         if (!GameSession.getInstance().getGames().containsKey(gameId)) {

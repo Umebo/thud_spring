@@ -1,8 +1,10 @@
 package com.igniemie.thud.controllers;
 
+import com.igniemie.thud.exception.NicknameValidationException;
 import com.igniemie.thud.service.ILoginService;
 import com.igniemie.thud.service.impl.LoginService;
 import com.igniemie.thud.session.PlayerSession;
+import com.igniemie.thud.validators.NicknameValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +29,11 @@ public class LoginController {
 
     @PostMapping(value = "/login")
     public String login(@RequestParam String nickname) {
+        try {
+            NicknameValidator.validateNickname(nickname);
+        } catch (NicknameValidationException e) {
+            return "redirect:/login";
+        }
 
         this.loginService.login(nickname);
 

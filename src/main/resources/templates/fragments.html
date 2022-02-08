@@ -2,9 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Thud! Game<</title>
+    <title>Thud! Game</title>
 </head>
 <body>
+
 <div id="menu" th:fragment="menu">
     <a href="/main">Main</a>
     <a th:if="${logged == false}" href="/login">Sign in</a>

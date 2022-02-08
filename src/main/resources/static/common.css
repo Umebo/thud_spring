@@ -1,6 +1,25 @@
+.column {
+    float: left;
+    width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+img{
+    width: 30%;
+    height: auto;
+}
+
 #logo {
     display: flex;
     justify-content: center;
+    width: 30%;
+    height: auto;
 }
 
 #content {
@@ -31,6 +50,7 @@
     margin: 5px 15px;
     text-decoration: none;
     color: #737373;
+    display: block;
     transition: color 0.5s;
     transition: background 0.5s;
     padding: 5px 15px;

@@ -1,6 +1,7 @@
 package com.igniemie.thud.controllers;
 
 import com.igniemie.thud.session.GameSession;
+import com.igniemie.thud.session.PlayerSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,7 @@ import javax.annotation.Resource;
 public class MainController {
 
     @Resource
-    GameSession gameSession;
+    PlayerSession playerSession;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String main(){
@@ -21,8 +22,9 @@ public class MainController {
 
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public String main(Model model){
-        model.addAttribute("isLogged", this.gameSession.isLogged());
-        model.addAttribute("player", this.gameSession.getPlayer());
+        model.addAttribute("logged", this.playerSession.isLogged());
+        model.addAttribute("player", this.playerSession.getPlayer());
         return "main";
     }
+
 }

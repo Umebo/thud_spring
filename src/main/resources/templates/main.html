@@ -7,8 +7,16 @@
 </head>
 <body>
 
-<div th:replace="fragments.html :: logo"></div>
-<div th:replace="fragments.html :: menu"></div>
+
+<div class="row">
+    <div class="column">
+        <div th:replace="fragments.html :: logo"></div>
+        <div th:replace="fragments.html :: menu"></div>
+    </div>
+    <div class="column">
+    </div>
+</div>
+
 
 </body>
 </html>

@@ -7,11 +7,13 @@
 <body>
 <div id="menu" th:fragment="menu">
     <a href="/main">Main</a>
-    <a href="/contact">Kontakt</a>
+    <a th:if="${logged == false}" href="/login">Sign in</a>
+    <a th:if="${logged == true}" href="/main">Create game</a>
+    <a th:if="${logged == true}" href="/logout">Log out</a>
     <!--
-    <a th:if="${logged == true}" href="/courses">Kursy</a>
-    <a th:if="${logged == false}" href="/login">Zaloguj</a>
-    <a th:if="${logged == true}" href="/logout">Wyloguj</a>
+    <a th:if="${logged == false}" href="/main">Join game</a>
+    <a th:if="${logged == true}" href="/main"></a>
+    <a href="/rules">Rules</a>
     -->
 </div>
 
@@ -19,7 +21,7 @@
     <img src="tictactoe_logo.png">
 </div>
 
-<div id="common_text" th:fragment="status">
+<div id="common_text" th:fragment="nickname">
 
 </div>
 

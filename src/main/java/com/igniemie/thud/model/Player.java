@@ -15,8 +15,10 @@ public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String username;
-    @Enumerated(EnumType.STRING)
-    private PlayerType type;
+    private String nickname;
+
+    public Player(String nickname) {
+        this.nickname = nickname;
+    }
 
 }

@@ -9,18 +9,5 @@ import org.springframework.web.context.annotation.SessionScope;
 @SessionScope
 public class GameSession {
 
-    private Player player = null;
-
-    public boolean isLogged() {
-        return this.player != null;
-    }
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
 
 }

@@ -1,0 +1,43 @@
+#menu {
+    display: flex;
+    justify-content: center;
+}
+
+#menu a {
+    margin: 5px 15px;
+    text-decoration: none;
+    color: #737373;
+    display: flex;
+    transition: color 0.5s;
+    transition: background 0.5s;
+    padding: 5px 15px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+#menu a:hover {
+    color: white;
+    background: #6489a2;
+}
+
+/* ---------- VERTICAL MENU ---------- */
+
+#vertical-menu {
+    display: flex;
+    justify-content: center;
+}
+
+#vertical-menu a {
+    margin: 10px 20px;
+    background-color: #eee;
+    color: #6489a2;
+    display: block; /* Make the links appear below each other */
+    padding: 10px 20px;
+    text-decoration: none; /* Remove underline from links */
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+#vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+}

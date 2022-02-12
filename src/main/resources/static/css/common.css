@@ -1,19 +1,39 @@
-.column {
-    float: left;
-    width: 50%;
+html {
+    background-color: #737373
 }
 
-.row:after {
+* {
+    box-sizing: border-box;
+}
+
+.column {
+    float: left;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.left {
+    width: 25%;
+}
+
+.right {
+    width: 75%;
+}
+
+/* Clear floats after the columns */
+.page:after {
     content: "";
     display: table;
     clear: both;
 }
 
-#logo {
-    display: flex;
-    justify-content: center;
-    width: 30%;
-    height: auto;
+.logo {
+    width:80%;
+    height:auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
 }
 
 #content {

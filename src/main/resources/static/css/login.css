@@ -1,31 +1,30 @@
 #login-form {
     width: 700px;
     margin: 30px auto;
-    display: block;
+    display: flex;
     text-align: center;
 }
 
-#login-form input[type="text"], #login-form input[type="password"] {
+#login-form input[type="text"] {
     width: 80%;
     margin: 5px 0;
     font-size: 20px;
     text-align: center;
-    border: 1px solid #737373;
+    color: #6489a2;
     border-radius: 10px;
     transition: border 0.5s;
 }
 
-#login-form input[type="text"]:hover, #login-form input[type="password"]:hover {
-    border: 1px solid #f6cdb2;
+#login-form input[type="text"]:hover {
+    border: 1px solid #6489a2;
 }
 
 #login-form input[type="submit"] {
-    background: white;
-    border: 1px solid #737373;
-    margin: 10px 0;
+    background: #eee;
+    margin: 10px 10px;
     border-radius: 10px;
     font-size: 20px;
-    color: #737373;
+    color: #6489a2;
     padding: 5px 15px;
     cursor: pointer;
     transition: border, color 0.5s;
@@ -33,7 +32,5 @@
 }
 
 #login-form input[type="submit"]:hover {
-    background: #f6cdb2;
-    border: 1px solid #f6cdb2;
-    color: white;
+    background: #ccc;
 }

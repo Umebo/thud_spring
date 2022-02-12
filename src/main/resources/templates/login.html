@@ -3,21 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <title>Thud! Game</title>
-  <link rel="stylesheet" href="common.css">
-  <link rel="stylesheet" href="login.css">
-  <link rel="stylesheet" href="menu.css">
+  <link rel="stylesheet" th:href="@{/css/common.css}">
+  <link rel="stylesheet" th:href="@{/css/menu.css}">
+  <link rel="stylesheet" th:href="@{/css/login.css}">
 </head>
 <body>
 
-<div th:replace="fragments.html :: logo"></div>
-<div th:replace="fragments.html :: menu"></div>
-
-<div id="content">
-  <form method="post" id="login-form">
-    <input type="text" placeholder="Nickname" name="nickname">
-    <br>
-    <input type="submit" value="Submit">
-  </form>
+<div class="page">
+  <div class="column left" style="background-color:#aaa;">
+    <div th:replace="fragments.html :: logo"></div>
+    <div th:replace="fragments.html :: menu"></div>
+  </div>
+  <div class="column right" style="background-color:#bbb;">
+    <div id="content">
+      <form method="post" id="login-form">
+        <input type="text" placeholder="Nickname" name="nickname">
+        <br>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
 </div>
+
 </body>
 </html>

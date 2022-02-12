@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<div id="menu" th:fragment="menu">
+<div id="vertical-menu" th:fragment="menu">
     <a href="/main">Main</a>
     <a th:if="${logged == false}" href="/login">Sign in</a>
     <a th:if="${logged == true}" href="/main">Create game</a>
@@ -18,8 +18,8 @@
     -->
 </div>
 
-<div id="logo" th:fragment="logo">
-    <img src="tictactoe_logo.png">
+<div th:fragment="logo">
+    <img class="logo" src="tictactoe_logo.png" alt="">
 </div>
 
 <div id="common_text" th:fragment="nickname">

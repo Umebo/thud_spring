@@ -23,12 +23,14 @@
 /* ---------- VERTICAL MENU ---------- */
 
 #vertical-menu {
-    display: flex;
+    margin-top: 80px;
+    display: block;
     justify-content: center;
 }
 
 #vertical-menu a {
-    margin: 10px 20px;
+    margin: 20px 60px;
+    text-align: center;
     background-color: #eee;
     color: #6489a2;
     display: block; /* Make the links appear below each other */

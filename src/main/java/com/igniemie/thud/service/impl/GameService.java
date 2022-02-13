@@ -3,6 +3,7 @@ package com.igniemie.thud.service.impl;
 import com.igniemie.thud.database.IGameDAO;
 import com.igniemie.thud.exception.InvalidParamException;
 import com.igniemie.thud.model.Game;
+import com.igniemie.thud.model.GamePlay;
 import com.igniemie.thud.model.GameStatus;
 import com.igniemie.thud.model.Player;
 import com.igniemie.thud.service.IGameService;
@@ -50,7 +51,6 @@ public class GameService implements IGameService {
         return this.gameDAO.getGameById(player).get();
     }
 
-    //TODO create a new entry instead of getting an instance of Game
     @Override
     public Game connectToGame(Player player2, String gameId) throws InvalidParamException {
         Game game = this.gameDAO.getGameById(gameId).get();
@@ -64,5 +64,12 @@ public class GameService implements IGameService {
         this.gameSession.setGame(game);
         return game;
     }
+/*
+    @Override
+    public Game gamePlay(GamePlay gamePlay) {
+        if.
 
+        Game game = this.gameSession.getGame()
+    }
+*/
 }

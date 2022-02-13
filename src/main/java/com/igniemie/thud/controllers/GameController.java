@@ -45,6 +45,11 @@ public class GameController {
         return gameService.connectToGame(request.getPlayer(), request.getGameUUID());
     }
 
+    @PostMapping("/show")
+    public int[][] show()  {
+        return this.gameSession.showBoard();
+    }
+
 /*
     @GetMapping("/start")
     public Game getGame(@RequestBody String gameUUID) {

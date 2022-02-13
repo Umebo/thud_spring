@@ -24,6 +24,10 @@ public class GameSession {
         return this.game;
     }
 
+    public int[][] showBoard(){
+        return this.board;
+    }
+
     public boolean isStarted(){
         return this.game != null;
     }
@@ -32,8 +36,4 @@ public class GameSession {
         return game.getGameUUID();
     }
 
-    public void addPlayer(Player player){
-        this.game.setPlayer2(player.getNickname());
-        this.game.setStatus(GameStatus.IN_PROGRESS);
-    }
 }

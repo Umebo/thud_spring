@@ -1,8 +1,8 @@
 package com.igniemie.thud.model;
 
 public enum PlayerType {
-    DWARF(1),
-    TROLL(2);
+    X(1),
+    O(2);
 
     PlayerType(int i) {
     }

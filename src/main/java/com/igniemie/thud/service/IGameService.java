@@ -5,5 +5,7 @@ import com.igniemie.thud.model.Player;
 
 public interface IGameService {
 
-    Game createGame(Player player);
+    void createGame(String player);
+
+    void getGameById(String gameId);
 }

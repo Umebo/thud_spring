@@ -15,6 +15,9 @@ public class MainController {
     @Resource
     PlayerSession playerSession;
 
+    @Resource
+    GameSession gameSession;
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String main(){
         return "redirect:/main";

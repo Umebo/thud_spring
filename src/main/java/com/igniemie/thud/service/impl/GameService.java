@@ -5,6 +5,7 @@ import com.igniemie.thud.model.Game;
 import com.igniemie.thud.model.GameStatus;
 import com.igniemie.thud.model.Player;
 import com.igniemie.thud.service.IGameService;
+import com.igniemie.thud.session.GameSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,18 +17,27 @@ public class GameService implements IGameService {
     @Autowired
     IGameDAO gameDAO;
 
+    @Autowired
+    GameSession gameSession;
+
     @Override
-    public Game createGame(Player player){
+    public void createGame(String player){
         Game game = new Game();
-        game.setBoard(new int[3][3]);
-        game.setGameId(UUID.randomUUID().toString());
+        game.setGameUUID(UUID.randomUUID().toString());
         game.setPlayer1(player);
         game.setStatus(GameStatus.NEW);
-        //GameSession.getInstance().setGame(game);
-        return game;
+        this.gameSession.setGame(game);
+        this.gameDAO.addGame(game);
+    }
+
+    @Override
+    public void getGameById(String gameId) {
+        System.out.print(this.gameDAO.getGameById(gameId));
+
     }
 
     //TODO create a new entry instead of getting an instance of Game
+
 /*
     public Game connectToGame(Player player2, String gameId) throws InvalidParamException{
         if (!GameSession.getInstance().getGames().containsKey(gameId)) {

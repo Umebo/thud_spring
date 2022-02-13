@@ -9,7 +9,7 @@
 <div id="vertical-menu" th:fragment="menu">
     <a href="/main">Main</a>
     <a th:if="${logged == false}" href="/login">Sign in</a>
-    <a th:if="${logged == true}" href="/main">Create game</a>
+    <a th:if="${logged == true}" href="/game">Create game</a>
     <a th:if="${logged == true}" href="/logout">Log out</a>
     <!--
     <a th:if="${logged == false}" href="/main">Join game</a>
@@ -23,7 +23,13 @@
 </div>
 
 <div id="common_text" th:fragment="nickname">
+    <div th:if="${logged == true}">
+        <div th:text="'Logged as: ' + ${player.getNickname()}"></div>
+    </div>
+</div>
 
+<div id="common_text" th:fragment="gameId">
+    <div th:text="'Game ID: ' + ${gameId}"></div>
 </div>
 
 </body>

@@ -6,14 +6,11 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity
 @NoArgsConstructor
 @Getter
 @Setter
 public class Player {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nickname;
 

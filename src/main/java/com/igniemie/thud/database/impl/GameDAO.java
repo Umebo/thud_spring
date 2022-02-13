@@ -39,10 +39,25 @@ public class GameDAO implements IGameDAO {
     }
 
     @Override
-    public Optional<Game> getGameById(String gameId) {
+    public Optional<Game> getGameById(String gameUUID) {
         Session session = this.sessionFactory.openSession();
-        Query<Game> query = session.createQuery("FROM com.igniemie.thud.model.Game WHERE gameUUID = :id");
-        query.setParameter("id", gameId);
+        Query<Game> query = session.createQuery("FROM com.igniemie.thud.model.Game WHERE gameUUID = :gameUUID");
+        query.setParameter("gameUUID", gameUUID);
+        try {
+            Game game = query.getSingleResult();
+            session.close();
+            return Optional.of(game);
+        } catch (NoResultException e) {
+            session.close();
+            return Optional.empty();
+        }
+    }
+
+    @Override
+    public Optional<Game> getGameByPlayer(String player) {
+        Session session = this.sessionFactory.openSession();
+        Query<Game> query = session.createQuery("FROM com.igniemie.thud.model.Game WHERE player1 = :player");
+        query.setParameter("player", player);
         try {
             Game game = query.getSingleResult();
             session.close();

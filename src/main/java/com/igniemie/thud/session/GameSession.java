@@ -20,11 +20,15 @@ public class GameSession {
         this.game = game;
     }
 
+    public Game getGame(){
+        return this.game;
+    }
+
     public boolean isStarted(){
         return this.game != null;
     }
 
-    public String getGameId(){
+    public String getGameUUID(){
         return game.getGameUUID();
     }
 

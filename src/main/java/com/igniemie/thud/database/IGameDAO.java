@@ -11,7 +11,9 @@ import java.util.UUID;
 public interface IGameDAO {
     void addGame(Game game);
 
-    Optional<Game> getGameById(String courseId);
+    Optional<Game> getGameById(String gameUUID);
+
+    Optional<Game> getGameByPlayer(String player);
 
     List<Game> getGames();
 }

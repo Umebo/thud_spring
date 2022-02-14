@@ -3,12 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Thud! Game</title>
-    <link rel="stylesheet" href="/static/css/common.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Permanent Marker">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/menu.css}">
+    <link rel="stylesheet" th:href="@{/css/gameplay.css}">
 </head>
 <body>
 
-<div id="content">
-    
+<div class="page">
+    <div class="column left" style="background-color:#aaa;">
+        <div th:replace="fragments.html :: logo"></div>
+        <div th:replace="fragments.html :: menu"></div>
+        <div th:replace="fragments.html :: nickname"></div>
+    </div>
+    <div class="column right" style="background-color:#bbb;">
+        <div th:replace="fragments.html :: gameId"></div>
+        <div class="column left" style="background-color:#aaa;">
+            <div th:replace="fragments.html :: gameId"></div>
+            <input id="nickname" placeholder="Place a login here">
+            <button onclick="create_game()">Create game</button>
+            <input id="gameUUID" placeholder="Paste game id">
+            <button onclick="connectToSpecificGame()">Connect by game id</button>
+            <div th:replace="fragments.html :: nickname"></div>
+        </div>
+        <div class="column right" style="background-color:#bbb;">
+            <div>
+                <table id="gameBoard">
+                    <tr>
+                        <td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td></td><td></td><td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
+
+<script th:src="@{/js/script.js}"></script>
+<script th:src="@{/js/sockets.js}"></script>
+
 </body>
 </html>

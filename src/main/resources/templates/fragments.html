@@ -9,7 +9,7 @@
 <div id="vertical-menu" th:fragment="menu">
     <a href="/main">Main</a>
     <a th:if="${logged == false}" href="/login">Sign in</a>
-    <a th:if="${logged == true}" href="/game">Create game</a>
+    <a th:if="${logged == true}" onclick="create_game()" href="/game/start">Create game</a>
     <a th:if="${logged == true}" href="/logout">Log out</a>
     <!--
     <a th:if="${logged == false}" href="/main">Join game</a>

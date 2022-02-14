@@ -15,9 +15,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @RestController
-@RequestMapping("/game")
 public class GameController {
 
     @Autowired
@@ -35,18 +36,18 @@ public class GameController {
         this.simpMessagingTemplate = simpMessagingTemplate;
     }
 
-    @PostMapping("/start")
+    @PostMapping("/game/start")
     public Game start(@RequestBody Player player) {
         gameService.createGame(player.getNickname());
         return gameSession.getGame();
     }
 
-    @PostMapping("/connect")
+    @PostMapping("/game/connect")
     public Game connect(@RequestBody ConnectRequest request) throws InvalidParamException {
         return gameService.connectToGame(request.getPlayer(), request.getGameUUID());
     }
 
-    @PostMapping("/gameplay")
+    @PostMapping("/game/gameplay")
     public GameDTO gameplay(@RequestBody GamePlay request) {
         int [][] board = gameService.gamePlay(request);
         GameDTO gameDTO = new GameDTO();
@@ -59,19 +60,13 @@ public class GameController {
         return gameDTO;
     }
 
-    @GetMapping("/show")
+    @GetMapping("/game/show")
     public int[][] show()  {
         return this.gameSession.getBoard();
     }
 
 /* ------------------------------------------------------------------ */
-
-    @RequestMapping(value = "")
-    public String startNewGame() {
-        Player player = this.playerSession.getPlayer();
-        this.gameService.createGame(player.getNickname());
-        return "redirect:/game/play";
-    }
+/*
 
     @RequestMapping(value = "/play")
     public String play(Model model) {
@@ -80,5 +75,5 @@ public class GameController {
         model.addAttribute("gameId", this.gameSession.getGameUUID());
         return "play";
     }
-
+*/
 }

@@ -38,7 +38,7 @@ public class LoginController {
         this.loginService.login(nickname);
 
         if(this.playerSession.isLogged()) {
-            return "redirect:/main";
+            return "redirect:/game";
         } else {
             return "redirect:/login";
         }

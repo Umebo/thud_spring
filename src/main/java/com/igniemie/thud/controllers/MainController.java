@@ -32,4 +32,11 @@ public class MainController {
         return "main";
     }
 
+    @GetMapping(value = "/game")
+    public String game(Model model){
+        model.addAttribute("logged", this.playerSession.isLogged());
+        model.addAttribute("player", this.playerSession.getPlayer());
+        return "game";
+    }
+
 }

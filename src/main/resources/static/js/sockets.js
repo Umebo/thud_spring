@@ -1,6 +1,6 @@
 const url = 'http://localhost:8080';
 let stompClient;
-let gameId;
+let gameUUID;
 let playerType;
 
 function connectToSocket(gameId) {
@@ -10,7 +10,7 @@ function connectToSocket(gameId) {
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
         console.log("connected to the frame: " + frame);
-        stompClient.subscribe("/topic/game-progress/" + gameId, function (response) {
+        stompClient.subscribe("/topic/game-progress/" + gameUUID, function (response) {
             let data = JSON.parse(response.body);
             console.log(data);
             displayResponse(data);
@@ -19,9 +19,9 @@ function connectToSocket(gameId) {
 }
 
 function create_game() {
-    let login = document.getElementById("login").value;
-    if (login == null || login === '') {
-        alert("Please enter login");
+    let nickname = document.getElementById("nickname").value;
+    if (nickname == null || nickname === '') {
+        alert("Please enter nickname");
     } else {
         $.ajax({
             url: url + "/game/start",
@@ -29,14 +29,14 @@ function create_game() {
             dataType: "json",
             contentType: "application/json",
             data: JSON.stringify({
-                "login": login
+                "nickname": nickname
             }),
             success: function (data) {
-                gameId = data.gameId;
+                gameUUID = data.gameUUID;
                 playerType = 'X';
                 reset();
-                connectToSocket(gameId);
-                alert("Your created a game. Game id is: " + data.gameId);
+                connectToSocket(gameUUID);
+                alert("Your created a game. Game id is: " + data.gameUUID);
                 gameOn = true;
             },
             error: function (error) {
@@ -46,41 +46,13 @@ function create_game() {
     }
 }
 
-
-function connectToRandom() {
-    let login = document.getElementById("login").value;
-    if (login == null || login === '') {
-        alert("Please enter login");
-    } else {
-        $.ajax({
-            url: url + "/game/connect/random",
-            type: 'POST',
-            dataType: "json",
-            contentType: "application/json",
-            data: JSON.stringify({
-                "login": login
-            }),
-            success: function (data) {
-                gameId = data.gameId;
-                playerType = 'O';
-                reset();
-                connectToSocket(gameId);
-                alert("Congrats you're playing with: " + data.player1.login);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        })
-    }
-}
-
 function connectToSpecificGame() {
-    let login = document.getElementById("login").value;
-    if (login == null || login === '') {
+    let nickname = document.getElementById("nickname").value;
+    if (nickname == null || nickname === '') {
         alert("Please enter login");
     } else {
-        let gameId = document.getElementById("game_id").value;
-        if (gameId == null || gameId === '') {
+        let gameUUID = document.getElementById("gameUUID").value;
+        if (gameUUID == null || gameUUID === '') {
             alert("Please enter game id");
         }
         $.ajax({
@@ -90,16 +62,16 @@ function connectToSpecificGame() {
             contentType: "application/json",
             data: JSON.stringify({
                 "player": {
-                    "login": login
+                    "nickname": nickname
                 },
-                "gameId": gameId
+                "gameUUID": gameUUID
             }),
             success: function (data) {
-                gameId = data.gameId;
+                gameUUID = data.gameUUID;
                 playerType = 'O';
                 reset();
-                connectToSocket(gameId);
-                alert("Congrats you're playing with: " + data.player1.login);
+                connectToSocket(gameUUID);
+                alert("Congrats you're playing with: " + data.player1.nickname);
             },
             error: function (error) {
                 console.log(error);

@@ -1,23 +1,20 @@
 package com.igniemie.thud.controllers;
 
-import com.fasterxml.jackson.databind.node.TextNode;
-import com.igniemie.thud.database.IGameDAO;
 import com.igniemie.thud.database.dto.ConnectRequest;
+import com.igniemie.thud.database.dto.GameDTO;
 import com.igniemie.thud.exception.InvalidParamException;
 import com.igniemie.thud.model.Game;
+import com.igniemie.thud.database.dto.GamePlay;
 import com.igniemie.thud.model.Player;
 import com.igniemie.thud.service.IGameService;
 import com.igniemie.thud.session.GameSession;
 import com.igniemie.thud.session.PlayerSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/game")
@@ -34,6 +31,10 @@ public class GameController {
     @Resource
     GameSession gameSession;
 
+    public GameController(SimpMessagingTemplate simpMessagingTemplate) {
+        this.simpMessagingTemplate = simpMessagingTemplate;
+    }
+
     @PostMapping("/start")
     public Game start(@RequestBody Player player) {
         gameService.createGame(player.getNickname());
@@ -45,17 +46,25 @@ public class GameController {
         return gameService.connectToGame(request.getPlayer(), request.getGameUUID());
     }
 
-    @PostMapping("/show")
-    public int[][] show()  {
-        return this.gameSession.showBoard();
+    @PostMapping("/gameplay")
+    public GameDTO gameplay(@RequestBody GamePlay request) {
+        int [][] board = gameService.gamePlay(request);
+        GameDTO gameDTO = new GameDTO();
+        gameDTO.setBoard(this.gameSession.getBoard());
+        gameDTO.setGame(this.gameSession.getGame());
+        gameDTO.setWinner(this.gameSession.getWinner());
+        simpMessagingTemplate.convertAndSend("/topic/game-progress" +
+                gameDTO.getGame().getGameUUID(),
+                gameDTO);
+        return gameDTO;
     }
 
-/*
-    @GetMapping("/start")
-    public Game getGame(@RequestBody String gameUUID) {
-        return this.gameService.getGameById(gameUUID);
+    @GetMapping("/show")
+    public int[][] show()  {
+        return this.gameSession.getBoard();
     }
-*/
+
+/* ------------------------------------------------------------------ */
 
     @RequestMapping(value = "")
     public String startNewGame() {

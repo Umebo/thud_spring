@@ -3,7 +3,7 @@ package com.igniemie.thud.service.impl;
 import com.igniemie.thud.database.IGameDAO;
 import com.igniemie.thud.exception.InvalidParamException;
 import com.igniemie.thud.model.Game;
-import com.igniemie.thud.model.GamePlay;
+import com.igniemie.thud.database.dto.GamePlay;
 import com.igniemie.thud.model.GameStatus;
 import com.igniemie.thud.model.Player;
 import com.igniemie.thud.service.IGameService;
@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -64,12 +63,14 @@ public class GameService implements IGameService {
         this.gameSession.setGame(game);
         return game;
     }
-/*
-    @Override
-    public Game gamePlay(GamePlay gamePlay) {
-        if.
 
-        Game game = this.gameSession.getGame()
+    @Override
+    public int[][] gamePlay(GamePlay gamePlay) {
+
+        int[][] board = this.gameSession.getBoard();
+        board[gamePlay.getDimX()][gamePlay.getDimY()] = gamePlay.getType().getValue();
+        this.gameSession.setBoard(board);
+        return board;
     }
-*/
+
 }

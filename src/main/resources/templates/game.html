@@ -25,8 +25,9 @@
         <div th:replace="fragments.html :: gameId"></div>
         <div class="column left" style="background-color:#aaa;">
             <div th:replace="fragments.html :: gameId"></div>
-            <input id="nickname" placeholder="Place a login here">
-            <button onclick="create_game()">Create game</button>
+
+            <button th:attr="onclick='javascript:createGame(\'' + ${player.getNickname()} + '\');'">Create game</button>
+
             <input id="gameUUID" placeholder="Paste game id">
             <button onclick="connectToSpecificGame()">Connect by game id</button>
             <div th:replace="fragments.html :: nickname"></div>

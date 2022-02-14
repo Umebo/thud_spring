@@ -18,8 +18,9 @@ function connectToSocket(gameId) {
     })
 }
 
-function create_game() {
-    let nickname = document.getElementById("nickname").value;
+function createGame(Nickname) {
+    let nickname = Nickname;
+    //let nickname = document.getElementById("nickname").value;
     if (nickname == null || nickname === '') {
         alert("Please enter nickname");
     } else {
@@ -46,8 +47,9 @@ function create_game() {
     }
 }
 
-function connectToSpecificGame() {
-    let nickname = document.getElementById("nickname").value;
+function connectToSpecificGame(Nickname) {
+    let nickname = Nickname;
+    //let nickname = document.getElementById("nickname").value;
     if (nickname == null || nickname === '') {
         alert("Please enter login");
     } else {

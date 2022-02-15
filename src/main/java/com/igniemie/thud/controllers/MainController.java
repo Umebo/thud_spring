@@ -36,6 +36,8 @@ public class MainController {
     public String game(Model model){
         model.addAttribute("logged", this.playerSession.isLogged());
         model.addAttribute("player", this.playerSession.getPlayer());
+        if(this.gameSession.getGame() != null)
+        model.addAttribute("gameUUID", this.gameSession.getGameUUID());
         return "game";
     }
 

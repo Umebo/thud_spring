@@ -16,4 +16,6 @@ public interface IGameDAO {
     Optional<Game> getGameByPlayer(String player);
 
     List<Game> getGames();
+
+    void updateGame(Game game);
 }

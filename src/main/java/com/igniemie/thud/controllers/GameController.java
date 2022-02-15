@@ -8,15 +8,11 @@ import com.igniemie.thud.database.dto.GamePlay;
 import com.igniemie.thud.model.Player;
 import com.igniemie.thud.service.IGameService;
 import com.igniemie.thud.session.GameSession;
-import com.igniemie.thud.session.PlayerSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 @RestController
 public class GameController {
@@ -24,10 +20,7 @@ public class GameController {
     @Autowired
     IGameService gameService;
 
-    private SimpMessagingTemplate simpMessagingTemplate;
-
-    @Resource
-    PlayerSession playerSession;
+    private final SimpMessagingTemplate simpMessagingTemplate;
 
     @Resource
     GameSession gameSession;
@@ -49,7 +42,7 @@ public class GameController {
 
     @PostMapping("/game/gameplay")
     public GameDTO gameplay(@RequestBody GamePlay request) {
-        int [][] board = gameService.gamePlay(request);
+        this.gameService.gamePlay(request);
         GameDTO gameDTO = new GameDTO();
         gameDTO.setBoard(this.gameSession.getBoard());
         gameDTO.setGame(this.gameSession.getGame());
@@ -60,20 +53,11 @@ public class GameController {
         return gameDTO;
     }
 
+    /* additional */
+
     @GetMapping("/game/show")
     public int[][] show()  {
         return this.gameSession.getBoard();
     }
 
-/* ------------------------------------------------------------------ */
-/*
-
-    @RequestMapping(value = "/play")
-    public String play(Model model) {
-        model.addAttribute("logged", this.playerSession.isLogged());
-        model.addAttribute("player", this.playerSession.getPlayer());
-        model.addAttribute("gameId", this.gameSession.getGameUUID());
-        return "play";
-    }
-*/
 }

@@ -12,6 +12,7 @@
     <link rel="stylesheet" th:href="@{/css/common.css}">
     <link rel="stylesheet" th:href="@{/css/menu.css}">
     <link rel="stylesheet" th:href="@{/css/gameplay.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 
@@ -22,29 +23,38 @@
         <div th:replace="fragments.html :: nickname"></div>
     </div>
     <div class="column right" style="background-color:#bbb;">
-        <div th:replace="fragments.html :: gameId"></div>
+        <div th:replace="fragments.html :: gameUUID"></div>
         <div class="column left" style="background-color:#aaa;">
-            <div th:replace="fragments.html :: gameId"></div>
-
-            <button th:attr="onclick='javascript:createGame(\'' + ${player.getNickname()} + '\');'">Create game</button>
-
-            <input id="gameUUID" placeholder="Paste game id">
-            <button onclick="connectToSpecificGame()">Connect by game id</button>
             <div th:replace="fragments.html :: nickname"></div>
+            <div id="common_text">Create new game</div>
+            <div id="menu">
+                <button th:attr="onclick='javascript:createGame(\'' + ${player.getNickname()} + '\');'">
+                    Create game</button>
+            </div>
+            <div id="common_text">or join to existing one by passing game ID</div>
+            <div id="menu">
+                <div>
+                    <input id="gameUUID" placeholder="Paste game id">
+                </div>
+                <div>
+                    <button th:attr="onclick='javascript:connectToSpecificGame(\'' + ${player.getNickname()} + '\');'">
+                        Connect by game ID</button>
+                </div>
+            </div>
         </div>
         <div class="column right" style="background-color:#bbb;">
-            <div>
-                <table id="gameBoard">
-                    <tr>
-                        <td></td><td></td><td></td>
-                    </tr>
-                    <tr>
-                        <td></td><td></td><td></td>
-                    </tr>
-                    <tr>
-                        <td></td><td></td><td></td>
-                    </tr>
-                </table>
+            <div id="box">
+                <ul id="gameBoard">
+                    <li class="tic" id="0_0"></li>
+                    <li class="tic" id="0_1"></li>
+                    <li class="tic" id="0_2"></li>
+                    <li class="tic" id="1_0"></li>
+                    <li class="tic" id="1_1"></li>
+                    <li class="tic" id="1_2"></li>
+                    <li class="tic" id="2_0"></li>
+                    <li class="tic" id="2_1"></li>
+                    <li class="tic" id="2_2"></li>
+                </ul>
             </div>
         </div>
     </div>

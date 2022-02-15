@@ -6,7 +6,7 @@
 #menu a {
     margin: 5px 15px;
     text-decoration: none;
-    color: #737373;
+    color: #6489a2;
     display: flex;
     transition: color 0.5s;
     transition: background 0.5s;
@@ -15,9 +15,20 @@
     border-radius: 10px;
 }
 
+#menu button {
+    margin: 5px 15px;
+    text-decoration: none;
+    color: #6489a2;
+    display: flex;
+    transition: color 0.5s;
+    transition: background 0.5s;
+    padding: 5px 15px;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
 #menu a:hover {
-    color: white;
-    background: #6489a2;
+    background-color: #ccc;
 }
 
 /* ---------- VERTICAL MENU ---------- */
@@ -34,6 +45,8 @@
     background-color: #eee;
     color: #6489a2;
     display: block; /* Make the links appear below each other */
+    transition: color 0.5s;
+    transition: background 0.5s;
     padding: 10px 20px;
     text-decoration: none; /* Remove underline from links */
     font-size: 30px;

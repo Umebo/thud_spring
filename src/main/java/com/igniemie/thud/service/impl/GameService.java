@@ -61,6 +61,7 @@ public class GameService implements IGameService {
 
         game.setPlayer2(player2.getNickname());
         game.setStatus(GameStatus.IN_PROGRESS);
+        this.gameDAO.updateGame(game);
         this.gameSession.setGame(game);
         return game;
     }
@@ -74,8 +75,12 @@ public class GameService implements IGameService {
 
         if (checkWinner(board,PlayerType.X)) {
             this.gameSession.setWinner(PlayerType.X);
+            this.gameSession.getGame().setStatus(GameStatus.FINISHED);
+            this.gameDAO.updateGame(this.gameSession.getGame());
         } else if (checkWinner(board,PlayerType.O)) {
             this.gameSession.setWinner(PlayerType.O);
+            this.gameSession.getGame().setStatus(GameStatus.FINISHED);
+            this.gameDAO.updateGame(this.gameSession.getGame());
         }
 
         return board;

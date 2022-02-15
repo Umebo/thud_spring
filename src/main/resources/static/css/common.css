@@ -21,6 +21,10 @@ html {
     width: 75%;
 }
 
+.center {
+    width: 50%;
+}
+
 /* Clear floats after the columns */
 .page:after {
     content: "";

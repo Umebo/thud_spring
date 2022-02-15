@@ -77,4 +77,21 @@ public class GameDAO implements IGameDAO {
         return result;
     }
 
+    @Override
+    public void updateGame(Game game) {
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.update(game);
+            tx.commit();
+        } catch (Exception e) {
+            if(tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
+    }
+
 }

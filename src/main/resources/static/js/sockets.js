@@ -3,7 +3,7 @@ let stompClient;
 let gameUUID;
 let playerType;
 
-function connectToSocket(gameId) {
+function connectToSocket(gameUUID) {
 
     console.log("connecting to the game");
     let socket = new SockJS(url + "/gameplay");
@@ -18,66 +18,55 @@ function connectToSocket(gameId) {
     })
 }
 
-function createGame(Nickname) {
-    let nickname = Nickname;
-    //let nickname = document.getElementById("nickname").value;
-    if (nickname == null || nickname === '') {
-        alert("Please enter nickname");
-    } else {
-        $.ajax({
-            url: url + "/game/start",
-            type: 'POST',
-            dataType: "json",
-            contentType: "application/json",
-            data: JSON.stringify({
-                "nickname": nickname
-            }),
-            success: function (data) {
-                gameUUID = data.gameUUID;
-                playerType = 'X';
-                reset();
-                connectToSocket(gameUUID);
-                alert("Your created a game. Game id is: " + data.gameUUID);
-                gameOn = true;
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        })
-    }
+function createGame(nickname) {
+    $.ajax({
+        url: url + "/game/start",
+        type: 'POST',
+        dataType: "json",
+        contentType: "application/json",
+        data: JSON.stringify({
+            "nickname": nickname
+        }),
+        success: function (data) {
+            gameUUID = data.gameUUID;
+            playerType = 'X';
+            reset();
+            connectToSocket(gameUUID);
+            alert("Your created a game. Game id is: " + data.gameUUID);
+            gameOn = true;
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    })
 }
 
 function connectToSpecificGame(Nickname) {
     let nickname = Nickname;
-    //let nickname = document.getElementById("nickname").value;
-    if (nickname == null || nickname === '') {
-        alert("Please enter login");
-    } else {
-        let gameUUID = document.getElementById("gameUUID").value;
-        if (gameUUID == null || gameUUID === '') {
-            alert("Please enter game id");
-        }
-        $.ajax({
-            url: url + "/game/connect",
-            type: 'POST',
-            dataType: "json",
-            contentType: "application/json",
-            data: JSON.stringify({
-                "player": {
-                    "nickname": nickname
-                },
-                "gameUUID": gameUUID
-            }),
-            success: function (data) {
-                gameUUID = data.gameUUID;
-                playerType = 'O';
-                reset();
-                connectToSocket(gameUUID);
-                alert("Congrats you're playing with: " + data.player1.nickname);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        })
+    let gameUUID = document.getElementById("gameUUID").value;
+    if (gameUUID == null || gameUUID === '') {
+        alert("Please enter game id");
     }
+    $.ajax({
+        url: url + "/game/connect",
+        type: 'POST',
+        dataType: "json",
+        contentType: "application/json",
+        data: JSON.stringify({
+            "player": {
+                "nickname": nickname
+            },
+            "gameUUID": gameUUID
+        }),
+        success: function (data) {
+            gameUUID = data.gameUUID;
+            playerType = 'O';
+            reset();
+            connectToSocket(gameUUID);
+            alert("Congrats you're playing with: " + data.player1);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    })
 }

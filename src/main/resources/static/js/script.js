@@ -21,10 +21,11 @@ function makeAMove(type, xCoordinate, yCoordinate) {
             "type": type,
             "dimX": xCoordinate,
             "dimY": yCoordinate,
-            "gameUUID": gameId
+            "gameUUID": gameUUID
         }),
         success: function (data) {
             gameOn = false;
+            alert("show: " + data.player1);
             displayResponse(data);
         },
         error: function (error) {
@@ -34,6 +35,7 @@ function makeAMove(type, xCoordinate, yCoordinate) {
 }
 
 function displayResponse(data) {
+    console.log(data);
     let board = data.board;
     for (let i = 0; i < board.length; i++) {
         for (let j = 0; j < board[i].length; j++) {
@@ -57,6 +59,7 @@ $(".tic").click(function () {
     playerTurn(turn, slot);
 });
 
+
 function reset() {
     turns = [["#", "#", "#"], ["#", "#", "#"], ["#", "#", "#"]];
     $(".tic").text("#");
@@ -64,4 +67,6 @@ function reset() {
 
 $("#reset").click(function () {
     reset();
+
+
 });

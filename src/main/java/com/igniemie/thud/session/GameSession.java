@@ -1,26 +1,30 @@
 package com.igniemie.thud.session;
 
 import com.igniemie.thud.model.Game;
+import com.igniemie.thud.model.GameStatus;
 import com.igniemie.thud.model.Player;
+import com.igniemie.thud.model.PlayerType;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
 @Component
 @SessionScope
+@Getter
+@Setter
 public class GameSession {
 
-    private Player player = null;
+    private Game game = null;
+    private int[][] board = new int[3][3];
+    private PlayerType winner = null;
 
-    public boolean isLogged() {
-        return this.player != null;
+    public boolean isStarted(){
+        return this.game != null;
     }
 
-    public Player getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
+    public String getGameUUID(){
+        return game.getGameUUID();
     }
 
 }

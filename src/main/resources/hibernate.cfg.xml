@@ -26,7 +26,6 @@
 
         <property name="hbm2ddl.auto">update</property>
 
-        <mapping class="com.igniemie.thud.model.Player"/>
         <mapping class="com.igniemie.thud.model.Game"/>
 
     </session-factory>

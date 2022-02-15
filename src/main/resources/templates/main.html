@@ -3,12 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Thud! Game</title>
-    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Permanent Marker">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/menu.css}">
 </head>
 <body>
 
-<div th:replace="fragments.html :: logo"></div>
-<div th:replace="fragments.html :: menu"></div>
+<div class="page">
+    <div class="column left" style="background-color:#aaa;">
+        <div th:replace="fragments.html :: logo"></div>
+        <div th:replace="fragments.html :: menu"></div>
+    </div>
+    <div class="column right" style="background-color:#bbb;">
+
+    </div>
+</div>
+
 
 </body>
 </html>

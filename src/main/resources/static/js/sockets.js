@@ -11,7 +11,7 @@ function connectToSocket(gameUUID) {
     stompClient.connect({}, function (frame) {
         console.log("connected to the frame: " + frame);
         stompClient.subscribe("/topic/game-progress/" + gameUUID, function (response) {
-            let data = JSON.parse(response.body);
+            let data = JSON.stringify(response.body);
             console.log(data);
             displayResponse(data);
         })

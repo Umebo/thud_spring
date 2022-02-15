@@ -25,7 +25,6 @@ function makeAMove(type, xCoordinate, yCoordinate) {
         }),
         success: function (data) {
             gameOn = false;
-            alert("show: " + data.player1);
             displayResponse(data);
         },
         error: function (error) {

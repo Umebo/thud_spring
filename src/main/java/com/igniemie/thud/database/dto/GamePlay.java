@@ -7,7 +7,9 @@ import lombok.Data;
 public class GamePlay {
 
     private PlayerType type;
-    private Integer dimX;
-    private Integer dimY;
+    private Integer fromDimX;
+    private Integer fromDimY;
+    private Integer toDimX;
+    private Integer toDimY;
     private String gameUUID;
 }

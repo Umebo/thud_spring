@@ -14,4 +14,5 @@ import javax.persistence.*;
 public class Player {
 
     private String nickname;
+    private PlayerType currentType;
 }

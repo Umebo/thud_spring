@@ -16,7 +16,7 @@ import org.springframework.web.context.annotation.SessionScope;
 public class GameSession {
 
     private Game game = null;
-    private int[][] board = new int[3][3];
+    private int[][] board = new int[15][15];
     private PlayerType winner = null;
 
     public boolean isStarted(){

@@ -31,7 +31,7 @@ public class GameController {
 
     @PostMapping("/game/start")
     public Game start(@RequestBody Player player) {
-        gameService.createGame(player.getNickname());
+        gameService.createGame(player);
         return gameSession.getGame();
     }
 
@@ -39,6 +39,8 @@ public class GameController {
     public Game connect(@RequestBody ConnectRequest request) throws InvalidParamException {
         return gameService.connectToGame(request.getPlayer(), request.getGameUUID());
     }
+
+    //TODO remove manipulating DTO from controller
 
     @PostMapping("/game/gameplay")
     public GameDTO gameplay(@RequestBody GamePlay request) {

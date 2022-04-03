@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface IGameService {
 
-    Game createGame(String player);
+    Game createGame(Player player);
 
     Game getGameById(String gameId);
 

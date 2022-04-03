@@ -25,15 +25,18 @@ public class GameService implements IGameService {
     GameSession gameSession;
 
     @Override
-    public Game createGame(String player){
+    public Game createGame(Player player){
         Game game = new Game();
         game.setGameUUID(UUID.randomUUID().toString());
-        game.setPlayer1(player);
+        game.setPlayer1(player.getNickname());
+        player.setCurrentType(PlayerType.TROLL);
         game.setStatus(GameStatus.NEW);
         this.gameSession.setGame(game);
         this.gameDAO.addGame(game);
         return game;
     }
+
+    //TODO doczytać i zastosować Optional<>
 
     @Override
     public Game getGameById(String gameId) {
@@ -60,6 +63,7 @@ public class GameService implements IGameService {
         }
 
         game.setPlayer2(player2.getNickname());
+        player2.setCurrentType(PlayerType.DWARF);
         game.setStatus(GameStatus.IN_PROGRESS);
         this.gameDAO.updateGame(game);
         this.gameSession.setGame(game);
@@ -70,15 +74,15 @@ public class GameService implements IGameService {
     public int[][] gamePlay(GamePlay gamePlay) {
 
         int[][] board = this.gameSession.getBoard();
-        board[gamePlay.getDimX()][gamePlay.getDimY()] = gamePlay.getType().getValue();
+        board[gamePlay.getToDimX()][gamePlay.getToDimY()] = gamePlay.getType().getValue();
         this.gameSession.setBoard(board);
 
-        if (checkWinner(board,PlayerType.X)) {
-            this.gameSession.setWinner(PlayerType.X);
+        if (checkWinner(board,PlayerType.TROLL)) {
+            this.gameSession.setWinner(PlayerType.TROLL);
             this.gameSession.getGame().setStatus(GameStatus.FINISHED);
             this.gameDAO.updateGame(this.gameSession.getGame());
-        } else if (checkWinner(board,PlayerType.O)) {
-            this.gameSession.setWinner(PlayerType.O);
+        } else if (checkWinner(board,PlayerType.DWARF)) {
+            this.gameSession.setWinner(PlayerType.DWARF);
             this.gameSession.getGame().setStatus(GameStatus.FINISHED);
             this.gameDAO.updateGame(this.gameSession.getGame());
         }

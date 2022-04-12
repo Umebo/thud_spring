@@ -21,7 +21,7 @@ public class LoginService implements ILoginService {
         }
         if(nickname.length()<2) {
             return;
-        };
+        }
         Player player = new Player(nickname);
         this.playerSession.setPlayer(player);
     }

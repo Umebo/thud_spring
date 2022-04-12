@@ -6,8 +6,8 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum PlayerType {
-    TROLL(1),
-    DWARF(2);
+    DWARF(1),
+    TROLL(2);
 
     private Integer value;
 }

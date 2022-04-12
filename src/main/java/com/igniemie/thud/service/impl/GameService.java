@@ -2,11 +2,8 @@ package com.igniemie.thud.service.impl;
 
 import com.igniemie.thud.database.IGameDAO;
 import com.igniemie.thud.exception.InvalidParamException;
-import com.igniemie.thud.model.Game;
-import com.igniemie.thud.database.dto.GamePlay;
-import com.igniemie.thud.model.GameStatus;
-import com.igniemie.thud.model.Player;
-import com.igniemie.thud.model.PlayerType;
+import com.igniemie.thud.model.*;
+import com.igniemie.thud.database.dto.GamePlayDTO;
 import com.igniemie.thud.service.IGameService;
 import com.igniemie.thud.session.GameSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,19 +21,23 @@ public class GameService implements IGameService {
     @Autowired
     GameSession gameSession;
 
+    @Autowired
+    BoardService boardService;
+
     @Override
     public Game createGame(Player player){
         Game game = new Game();
         game.setGameUUID(UUID.randomUUID().toString());
         game.setPlayer1(player.getNickname());
-        player.setCurrentType(PlayerType.TROLL);
+        player.setPlayerType(PlayerType.TROLL);
         game.setStatus(GameStatus.NEW);
         this.gameSession.setGame(game);
+        this.gameSession.setBoard(boardService.initialiseBoard());
         this.gameDAO.addGame(game);
         return game;
     }
 
-    //TODO doczytać i zastosować Optional<>
+    //TODO doczytać i zastosować Optional<> w funkcjach get()?
 
     @Override
     public Game getGameById(String gameId) {
@@ -63,31 +64,17 @@ public class GameService implements IGameService {
         }
 
         game.setPlayer2(player2.getNickname());
-        player2.setCurrentType(PlayerType.DWARF);
+        player2.setPlayerType(PlayerType.DWARF);
         game.setStatus(GameStatus.IN_PROGRESS);
         this.gameDAO.updateGame(game);
         this.gameSession.setGame(game);
         return game;
     }
 
+    //TODO w funkcji gamePlay zmiany na obiekt Board
     @Override
-    public int[][] gamePlay(GamePlay gamePlay) {
-
-        int[][] board = this.gameSession.getBoard();
-        board[gamePlay.getToDimX()][gamePlay.getToDimY()] = gamePlay.getType().getValue();
-        this.gameSession.setBoard(board);
-
-        if (checkWinner(board,PlayerType.TROLL)) {
-            this.gameSession.setWinner(PlayerType.TROLL);
-            this.gameSession.getGame().setStatus(GameStatus.FINISHED);
-            this.gameDAO.updateGame(this.gameSession.getGame());
-        } else if (checkWinner(board,PlayerType.DWARF)) {
-            this.gameSession.setWinner(PlayerType.DWARF);
-            this.gameSession.getGame().setStatus(GameStatus.FINISHED);
-            this.gameDAO.updateGame(this.gameSession.getGame());
-        }
-
-        return board;
+    public void gamePlay(GamePlayDTO gamePlay) {
+        this.boardService.makeAMove(gamePlay.getFrom(), gamePlay.getTo());
     }
 
     private Boolean checkWinner(int[][] board, PlayerType playerType) {

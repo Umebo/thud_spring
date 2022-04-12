@@ -1,9 +1,6 @@
 package com.igniemie.thud.session;
 
-import com.igniemie.thud.model.Game;
-import com.igniemie.thud.model.GameStatus;
-import com.igniemie.thud.model.Player;
-import com.igniemie.thud.model.PlayerType;
+import com.igniemie.thud.model.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
@@ -16,7 +13,8 @@ import org.springframework.web.context.annotation.SessionScope;
 public class GameSession {
 
     private Game game = null;
-    private int[][] board = new int[15][15];
+    //TODO zamiast tablicy obiekt Board
+    private Board board;
     private PlayerType winner = null;
 
     public boolean isStarted(){

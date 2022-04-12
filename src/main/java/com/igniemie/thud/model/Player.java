@@ -14,5 +14,9 @@ import javax.persistence.*;
 public class Player {
 
     private String nickname;
-    private PlayerType currentType;
+    private PlayerType playerType;
+
+    public Player(String nickname) {
+        this.nickname = nickname;
+    }
 }

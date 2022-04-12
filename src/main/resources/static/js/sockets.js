@@ -29,7 +29,7 @@ function createGame(nickname) {
         }),
         success: function (data) {
             gameUUID = data.gameUUID;
-            playerType = 'X';
+            playerType = 'DWARF';
             reset();
             connectToSocket(gameUUID);
             alert("Your created a game. Game id is: " + data.gameUUID);
@@ -60,7 +60,7 @@ function connectToSpecificGame(Nickname) {
         }),
         success: function (data) {
             gameUUID = data.gameUUID;
-            playerType = 'O';
+            playerType = 'TROLL';
             reset();
             connectToSocket(gameUUID);
             alert("Congrats you're playing with: " + data.player1);

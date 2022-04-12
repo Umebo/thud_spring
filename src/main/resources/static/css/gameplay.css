@@ -7,6 +7,7 @@
 
 #gameBoard {
     justify-content: center;
+    align-content: center;
 }
 
 #gameBoard td {

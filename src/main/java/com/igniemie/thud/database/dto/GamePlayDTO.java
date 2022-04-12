@@ -4,12 +4,10 @@ import com.igniemie.thud.model.PlayerType;
 import lombok.Data;
 
 @Data
-public class GamePlay {
+public class GamePlayDTO {
 
     private PlayerType type;
-    private Integer fromDimX;
-    private Integer fromDimY;
-    private Integer toDimX;
-    private Integer toDimY;
+    private int[] from;
+    private int[] to;
     private String gameUUID;
 }

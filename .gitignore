@@ -33,3 +33,15 @@ build/
 .vscode/
 /mvnw.cmd
 /mvnw
+
+### React app ###
+# dependencies
+front/node_modules
+/.pnp
+.pnp.js
+
+# testing
+front/coverage
+
+# production
+front/build
